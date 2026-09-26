@@ -7,6 +7,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { PromoBanner } from "@/components/layout/PromoBanner";
 import { NewsletterCTA } from "@/components/shared/NewsletterCTA";
 import { author } from "@/lib/author";
+import { getSiteUrl } from "@/lib/site";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -20,10 +21,8 @@ const fraunces = Fraunces({
   axes: ["SOFT", "WONK", "opsz"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(getSiteUrl()),
   title: {
     default: `${author.name} — author of Dreams We Once Lost`,
     template: `%s · ${author.name}`,

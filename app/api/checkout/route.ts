@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { getBook, type BookFormatType } from "@/lib/books";
+import { getSiteUrl } from "@/lib/site";
 
 type PayloadItem = {
   slug: string;
@@ -44,19 +45,14 @@ export async function POST(request: Request) {
         product_data: {
           name: `${book.title} (${format.label})`,
           description: book.hook,
-          images: [
-            `${process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"}${book.coverImage}`,
-          ],
+          images: [`${getSiteUrl()}${book.coverImage}`],
         },
       },
     });
   }
 
   const stripe = new Stripe(secret);
-  const origin =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    request.headers.get("origin") ??
-    "http://localhost:3000";
+  const origin = request.headers.get("origin") || getSiteUrl();
 
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
