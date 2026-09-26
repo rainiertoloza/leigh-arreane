@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4ebe3;
+  --paper: #fbf6f1;
+  --ink: #1f1916;
+  --muted: #6f625a;
+  --line: #e3d5c8;
+  --accent: #9c6b56;
+  --accent-hover: #855a48;
+  --accent-soft: #e8d4c4;
+  --accent-foreground: #fbf6f1;
+  --radius: 1.15rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-foreground: var(--accent-foreground);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-fraunces);
+  --radius-lg: var(--radius);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--ink);
+  font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+.font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+.prose-leigh {
+  max-width: 42rem;
+  color: var(--ink);
+}
+
+.prose-leigh h2,
+.prose-leigh h3 {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-top: 2.25rem;
+  margin-bottom: 0.85rem;
+}
+
+.prose-leigh h2 {
+  font-size: 1.85rem;
+}
+
+.prose-leigh p,
+.prose-leigh li {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--ink) 88%, transparent);
+}
+
+.prose-leigh p + p {
+  margin-top: 1.15rem;
+}
+
+.prose-leigh a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-leigh strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.prose-leigh blockquote {
+  margin: 2rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 2px solid var(--accent);
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink);
+}
